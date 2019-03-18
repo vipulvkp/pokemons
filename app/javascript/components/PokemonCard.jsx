@@ -8,7 +8,8 @@ class PokemonCard extends React.Component{
                              numberOfCustomFields : 0 ,
                              customFields : [],
                              focusOutArray : Array(3).fill(false),
-                             opacity : 1
+                             opacity : 1,
+                             show_save_caption : false
                             }
        }
        addField = () =>{
@@ -33,10 +34,11 @@ class PokemonCard extends React.Component{
                          focusOutArray : Array(this.state.focusOutArray.length).fill(true),
                          customFields : newCustomFields,
                          numberOfCustomFields : newCustomFields.length,
-                         opacity : 0.3
+                         opacity : 0.3,
+                         show_save_caption : true
 
           },function(){
-            setTimeout(()=>{this.setState({opacity:1})},3000)
+            setTimeout(()=>{this.setState({opacity:1,show_save_caption:false})},3000)
          })
         }
        updateNewValue = (event,key) =>{
@@ -132,6 +134,7 @@ class PokemonCard extends React.Component{
                <div className="ui card" style={divStyle}>
                   <div className="content" style={{backgroundColor:"beige"}}>
                         <div className="header" style={{color:"green"}}>PokeMon Name : {this.state.attr.name}
+                          {this.state.show_save_caption ? <span style={{float:"center",marginLeft:"13%",color:"grey"}}>Saving<div style={{marginLeft:"2%"}} className="ui active inline loader"></div></span> : null}
                           {isItEdit ? <span style={{float:"right"}}><button className="ui basic button" onClick={this.disableEditMod}><i className="large angle left icon" style={{color:"green"}}></i>Back to Display</button></span> : <span  onClick={this.showEditMode} style={{float:"right",cursor:"pointer",color:"grey"}}><i className="edit large outline icon"></i></span>}
                         </div>
                   </div>

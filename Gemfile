@@ -9,6 +9,7 @@ gem 'webpacker'
 gem 'react-rails'
 gem 'rails', '~> 5.2.2'
 # Use sqlite3 as the database for Active Record
+gem "sqlite3", "~> 1.3.6"
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
